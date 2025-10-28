@@ -411,7 +411,7 @@ class BPythonListBox(urwid.ListBox):
         return key
 
 
-class Tooltip(urwid.BoxWidget):
+class Tooltip(urwid.Widget):
     """Container inspired by Overlay to position our tooltip.
 
     bottom_w should be a BoxWidget.
@@ -422,6 +422,9 @@ class Tooltip(urwid.BoxWidget):
     It also positions the top window relative to the cursor position
     from the bottom window and hides it if there is no cursor.
     """
+
+    _sizing = frozenset(['box'])
+    _selectable = True
 
     def __init__(self, bottom_w, listbox):
         super().__init__()
@@ -1322,7 +1325,8 @@ def main(args=None, locals_=None, banner=None):
 
         run_find_coroutine()
 
-    myrepl.main_loop.screen.run_wrapper(run_with_screen_before_mainloop)
+    with myrepl.main_loop.screen.start():
+        run_with_screen_before_mainloop()
 
     if config.flush_output and not options.quiet:
         sys.stdout.write(myrepl.getstdout())
