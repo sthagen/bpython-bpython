@@ -1,6 +1,21 @@
 Changelog
 =========
 
+0.27
+----
+
+General information:
+
+
+New features:
+
+
+Fixes:
+
+
+Changes to dependencies:
+
+
 0.26
 ----
 
