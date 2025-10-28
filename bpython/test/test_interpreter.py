@@ -50,7 +50,7 @@ class TestInterpreter(unittest.TestCase):
 
         global_not_found = "name 'gfunc' is not defined"
 
-        if (3, 13) <= sys.version_info[:2]:
+        if (3, 13) <= sys.version_info[:2] or pypy:
             expected = (
                 "Traceback (most recent call last):\n  File "
                 + green('"<input>"')
