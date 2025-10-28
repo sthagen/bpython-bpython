@@ -48,12 +48,8 @@ LOADERS = (
     ),
 )
 
-_LOADED_INODE_DATACLASS_ARGS = {"frozen": True}
-if sys.version_info[:2] >= (3, 10):
-    _LOADED_INODE_DATACLASS_ARGS["slots"] = True
 
-
-@dataclass(**_LOADED_INODE_DATACLASS_ARGS)
+@dataclass(frozen=True, slots=True)
 class _LoadedInode:
     dev: int
     inode: int
