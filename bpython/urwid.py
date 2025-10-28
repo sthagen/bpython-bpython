@@ -423,7 +423,7 @@ class Tooltip(urwid.Widget):
     from the bottom window and hides it if there is no cursor.
     """
 
-    _sizing = frozenset(['box'])
+    _sizing = frozenset(["box"])
     _selectable = True
 
     def __init__(self, bottom_w, listbox):
